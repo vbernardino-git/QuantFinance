@@ -218,3 +218,17 @@ __marimo__/
 .streamlit/secrets.toml
 
 Geometric Brownian Motion - GBM.png
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.cache/
+.venv/
+venv/
+*.log
+analisador/resultados/
+radares/*_log.csv
+radares/agenda_proventos_vistos.json
+# extratos brutos da B3/corretora nunca entram no repo (so o CSV derivado)
+movimentacao-*.xlsx
+relatorio-consolidado-*.xlsx
+.env

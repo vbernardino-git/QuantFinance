@@ -1,0 +1,17 @@
+numpy
+pandas
+scipy
+matplotlib
+yfinance
+statsmodels
+scikit-learn
+lightgbm
+ta
+rich
+openpyxl
+requests
+beautifulsoup4
+seaborn
+jupyter
+# opcional (o regime cai para KMeans + Markov se nao instalar)
+hmmlearn
