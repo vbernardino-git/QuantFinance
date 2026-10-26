@@ -4,7 +4,7 @@
 
 Todos os números e gráficos abaixo vêm **da minha carteira e das minhas operações de verdade**: extrato de movimentação da B3 (2025–2026), notas de corretagem e a posição atual na corretora.
 
-![Python](https://img.shields.io/badge/python-3.14-blue) ![dados](https://img.shields.io/badge/dados-Yahoo%20%C2%B7%20BCB%20%C2%B7%20B3%20%C2%B7%20StatusInvest-lightgrey) [![Contato: LinkedIn](https://img.shields.io/badge/contato-LinkedIn-0a66c2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/viniciusbernardino01/)
+![Python](https://img.shields.io/badge/python-3.14-blue) ![dados](https://img.shields.io/badge/dados-Yahoo%20%C2%B7%20BCB%20%C2%B7%20B3%20%C2%B7%20StatusInvest-lightgrey) [![Contato: LinkedIn](https://img.shields.io/badge/contato-LinkedIn-0a66c2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/viniciusbernardino01/) [![Instagram @vnbernardino](https://img.shields.io/badge/instagram-%40vnbernardino-E4405F?logo=instagram&logoColor=white)](https://www.instagram.com/vnbernardino/)
 
 ---
 
@@ -160,6 +160,6 @@ Os radares mandam alerta no Telegram se as variáveis `TELEGRAM_TOKEN` e `TELEGR
 
 ---
 
-**Quer conversar sobre o projeto ou uma vaga?** Me chama no [LinkedIn](https://www.linkedin.com/in/viniciusbernardino01/).
+**Quer conversar sobre o projeto ou uma vaga?** Me chama no [LinkedIn](https://www.linkedin.com/in/viniciusbernardino01/) ou no Instagram [@vnbernardino](https://www.instagram.com/vnbernardino/).
 
 *Projeto pessoal de estudo. Nada aqui é recomendação de investimento.*
