@@ -6,8 +6,11 @@ Historico REAL de operacoes a partir do extrato "Movimentacao" da Area do Invest
 
 - Usa as liquidacoes de renda variavel (Credito = compra, Debito = venda).
   Linhas "Transferencia" puras (sem "Liquidacao") sao movimento de custodia e ficam de fora.
-- Venda liquidada SEM preco no extrato (aconteceu em PETR4) recebe o fechamento do dia
-  (Yahoo) e fica marcada como "preco estimado" na coluna obs.
+- Aluguel de acoes (BTB): a acao emprestada sai como "Debito - Liquidacao" SEM preco e volta
+  como "Credito - Liquidacao" com a mesma quantidade (com preco de referencia). Nao e compra
+  nem venda: o par sai do calculo (aconteceu em PETR4 e TAEE11, conferido com o caixa do Inter).
+- Venda sem preco que nao tenha devolucao casada recebe o fechamento do dia (Yahoo) e fica
+  marcada como "preco estimado" na coluna obs.
 - O relatorio comeca em INICIO (2025), mas o preco medio usa o historico inteiro.
 - Acrescenta dados/trades_manuais.csv (operacoes depois do ultimo extrato).
 - Apura cada venda pelo preco medio (regra da Receita) e grava:
@@ -36,11 +39,28 @@ def ler_extrato(caminho):
         "preco": pd.to_numeric(df["preco"], errors="coerce"),
         "obs": "extrato B3",
     })
+    out = tirar_aluguel(out.sort_values("data", kind="stable"))
     sem = out["preco"].isna() & (out["lado"] == "V")
     for i, t in out[sem].iterrows():
         out.loc[i, "preco"] = fechamento(t.ticker, t.data)
         out.loc[i, "obs"] = "preco estimado (fechamento do dia; extrato sem preco)"
     return out[out["preco"].notna()]
+
+
+def tirar_aluguel(out):
+    """Casa cada saida sem preco (emprestimo BTB) com a proxima entrada de mesma quantidade
+    do mesmo papel (devolucao) e remove as duas."""
+    fora, abertos = set(), {}  # ticker -> [(idx, qtd)] emprestimos em aberto
+    for i, t in out.iterrows():
+        if t.lado == "V" and pd.isna(t.preco):
+            abertos.setdefault(t.ticker, []).append((i, t.qtd))
+        elif t.lado == "C":
+            for k, (j, q) in enumerate(abertos.get(t.ticker, [])):
+                if q == t.qtd and t.data > out.loc[j, "data"]:
+                    fora |= {i, j}
+                    del abertos[t.ticker][k]
+                    break
+    return out.drop(index=list(fora))
 
 
 def fechamento(ticker, data):
