@@ -1,0 +1,17 @@
+# Analisador Profissional de Acoes — dependencias
+# (a maioria ja esta no seu Python 3.14; este arquivo garante reprodutibilidade)
+numpy
+pandas
+scipy
+yfinance
+ta
+statsmodels
+scikit-learn
+lightgbm
+rich
+openpyxl
+matplotlib
+requests
+# Opcional: melhora o pilar de regime (Gaussian HMM). Se nao instalar no Python 3.14,
+# o programa cai automaticamente para KMeans + Markov (sem quebrar).
+hmmlearn

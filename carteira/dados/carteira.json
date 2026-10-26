@@ -1,0 +1,24 @@
+{
+  "data_ref": "2026-10-26",
+  "fonte": "Carteira RV.xlsx (aba Carteira) - posicao real na Inter",
+  "cdi_aa": 0.1415,
+  "caixa": 6736.56,
+  "posicoes": [
+    {"ticker": "CPLE3", "qtd": 175, "preco_medio": 14.81, "setor": "Energia",  "preco_alvo": 19.90},
+    {"ticker": "ITSA4", "qtd": 161, "preco_medio": 12.58, "setor": "Holding",  "preco_alvo": 18.00},
+    {"ticker": "VIVT3", "qtd": 56,  "preco_medio": 33.33, "setor": "Telecom",  "preco_alvo": 35.00},
+    {"ticker": "PSSA3", "qtd": 10,  "preco_medio": 54.39, "setor": "Seguros",  "preco_alvo": 55.00}
+  ],
+  "candidatos_troca": ["ISAE4", "SANB11", "BBSE3", "BRSR6"],
+  "bazin": {
+    "metodo": "teto = media DPA 5 anos / 6% (refinado: / DY historico medio, o que for mais conservador)",
+    "ativos": [
+      {"ticker": "ITSA4",  "dpa_medio": 0.80092,   "teto": 13.35, "teto_refinado": 9.13},
+      {"ticker": "VIVT3",  "dpa_medio": 1.45784,   "teto": 24.30, "teto_refinado": 24.26},
+      {"ticker": "SANB11", "dpa_medio": 2.0463,    "teto": 34.11, "teto_refinado": 31.00},
+      {"ticker": "TOTS3",  "dpa_medio": 0.424,     "teto": 7.07,  "teto_refinado": 7.07},
+      {"ticker": "CPLE3",  "dpa_medio": 0.78178,   "teto": 13.03, "teto_refinado": 7.55},
+      {"ticker": "PSSA3",  "dpa_medio": 1.8636636, "teto": 31.06, "teto_refinado": 31.06}
+    ]
+  }
+}

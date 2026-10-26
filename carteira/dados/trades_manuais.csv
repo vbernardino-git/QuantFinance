@@ -1,0 +1,5 @@
+data,ticker,lado,qtd,preco,obs
+,EQTL3,C,54,36.70,compra entre 22/08 e 01/09/2026 (depois do ultimo extrato da B3)
+2026-10-06,BRSR6,V,96,14.40,nota de corretagem (planilha Carteira RV)
+2026-10-20,TOTS3,V,96,41.98,nota de corretagem (planilha Carteira RV)
+2026-10-20,EQTL3,V,54,50.12,nota de corretagem (planilha Carteira RV)

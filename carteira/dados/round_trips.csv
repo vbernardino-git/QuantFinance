@@ -1,0 +1,29 @@
+data_venda,ticker,qtd,preco_venda,preco_medio,resultado,resultado_pct,dias,status,obs
+2025-01-06,BBAS3,13.0,24.06,26.2,-27.82,-0.0817,60.0,ok,extrato B3
+2025-01-06,RANI3,95.0,6.75,7.97,-115.9,-0.1531,126.0,ok,extrato B3
+2025-01-06,SOJA3,25.0,10.17,12.92,-68.75,-0.2128,60.0,ok,extrato B3
+2025-01-09,PETR4,20.0,37.03,36.77,5.2,0.0071,6.0,ok,extrato B3
+2025-01-24,VBBR3,4.0,18.03,17.75,1.12,0.0158,14.0,ok,extrato B3
+2025-01-29,VBBR3,4.0,18.14,17.68,1.84,0.026,1.0,ok,extrato B3
+2025-05-06,PETR4,40.0,30.26,30.15,4.4,0.0036,1.0,ok,extrato B3
+2025-07-08,VBBR3,24.0,22.87,21.29,37.92,0.0742,20.0,ok,extrato B3
+2025-07-08,WIZC3,65.0,7.73,7.95,-14.3,-0.0277,20.0,ok,extrato B3
+2025-08-04,WIZC3,100.0,7.52,7.15,37.0,0.0517,5.0,ok,extrato B3
+2025-08-07,CMIG4,72.0,10.23,10.34,-7.92,-0.0106,3.0,ok,extrato B3
+2025-08-15,TAEE11,22.0,33.83,33.63,4.4,0.0059,4.0,ok,preco estimado (fechamento do dia; extrato sem preco)
+2025-08-26,TAEE11,82.0,34.19,33.2039,80.86,0.0297,5.0,ok,preco estimado (fechamento do dia; extrato sem preco)
+2025-09-09,TAEE11,82.0,34.7,34.8,-8.2,-0.0029,1.0,ok,extrato B3
+2025-10-06,WEGE3,50.0,36.0,35.77,11.5,0.0064,3.0,ok,extrato B3
+2025-10-24,PETR4,92.0,29.84,30.74,-82.8,-0.0293,45.0,ok,preco estimado (fechamento do dia; extrato sem preco)
+2025-12-17,PETR4,120.0,31.08,31.412,-39.84,-0.0106,2.0,ok,preco estimado (fechamento do dia; extrato sem preco)
+2026-01-08,PETR4,92.0,30.2,30.2,0.0,0.0,2.0,ok,preco estimado (fechamento do dia; extrato sem preco)
+2026-01-19,PETR4,120.0,32.17,31.79,45.6,0.012,3.0,ok,preco estimado (fechamento do dia; extrato sem preco)
+2026-02-05,PETR4,200.0,38.2,36.7592,288.15,0.0392,8.0,ok,extrato B3
+2026-02-05,PETR4,12.0,37.0,36.7592,2.89,0.0065,8.0,ok,extrato B3
+2026-02-13,PETR4,12.0,38.0,37.35,7.8,0.0174,2.0,ok,extrato B3
+2026-07-08,BBAS3,61.0,19.7,19.3,24.4,0.0207,27.0,ok,extrato B3
+2026-07-08,CMIN3,31.0,4.31,4.3,0.31,0.0023,1.0,ok,extrato B3
+2026-08-05,SANB11,19.0,28.97,27.0453,36.57,0.0712,55.0,ok,extrato B3
+2026-10-06,BRSR6,96.0,14.4,13.8897,48.99,0.0367,90.0,ok,nota de corretagem (planilha Carteira RV)
+2026-10-20,TOTS3,96.0,41.98,31.1,1044.48,0.3498,169.0,ok,nota de corretagem (planilha Carteira RV)
+2026-10-20,EQTL3,54.0,50.12,36.7,724.68,0.3657,,ok,nota de corretagem (planilha Carteira RV)

@@ -1,0 +1,61 @@
+data,ticker,lado,qtd,preco,obs
+,EQTL3,C,54.0,36.7,compra entre 22/08 e 01/09/2026 (depois do ultimo extrato da B3)
+2025-01-03,PETR4,C,20.0,36.77,extrato B3
+2025-01-06,SOJA3,V,25.0,10.17,extrato B3
+2025-01-06,RANI3,V,95.0,6.75,extrato B3
+2025-01-06,BBAS3,V,13.0,24.06,extrato B3
+2025-01-09,PETR4,V,20.0,37.03,extrato B3
+2025-01-10,VBBR3,C,4.0,17.75,extrato B3
+2025-01-24,VBBR3,V,4.0,18.03,extrato B3
+2025-01-28,VBBR3,C,4.0,17.68,extrato B3
+2025-01-29,VBBR3,V,4.0,18.14,extrato B3
+2025-05-05,PETR4,C,40.0,30.15,extrato B3
+2025-05-06,PETR4,V,40.0,30.26,extrato B3
+2025-06-18,WIZC3,C,65.0,7.95,extrato B3
+2025-06-18,VBBR3,C,24.0,21.29,extrato B3
+2025-07-08,VBBR3,V,24.0,22.87,extrato B3
+2025-07-08,WIZC3,V,65.0,7.73,extrato B3
+2025-07-30,WIZC3,C,100.0,7.15,extrato B3
+2025-08-04,CMIG4,C,72.0,10.34,extrato B3
+2025-08-04,WIZC3,V,100.0,7.52,extrato B3
+2025-08-07,CMIG4,V,72.0,10.23,extrato B3
+2025-08-11,TAEE11,C,22.0,33.63,extrato B3
+2025-08-15,TAEE11,V,22.0,33.83,preco estimado (fechamento do dia; extrato sem preco)
+2025-08-21,TAEE11,C,60.0,33.0,extrato B3
+2025-08-25,TAEE11,C,22.0,33.76,extrato B3
+2025-08-26,TAEE11,V,82.0,34.19,preco estimado (fechamento do dia; extrato sem preco)
+2025-09-08,TAEE11,C,82.0,34.8,extrato B3
+2025-09-09,TAEE11,V,82.0,34.7,extrato B3
+2025-09-09,PETR4,C,92.0,30.74,extrato B3
+2025-10-03,WEGE3,C,50.0,35.77,extrato B3
+2025-10-06,WEGE3,V,50.0,36.0,extrato B3
+2025-10-24,PETR4,V,92.0,29.84,preco estimado (fechamento do dia; extrato sem preco)
+2025-12-15,PETR4,C,120.0,31.412,extrato B3
+2025-12-17,PETR4,V,120.0,31.08,preco estimado (fechamento do dia; extrato sem preco)
+2026-01-06,PETR4,C,92.0,30.2,extrato B3
+2026-01-08,PETR4,V,92.0,30.2,preco estimado (fechamento do dia; extrato sem preco)
+2026-01-16,PETR4,C,120.0,31.79,extrato B3
+2026-01-19,PETR4,V,120.0,32.17,preco estimado (fechamento do dia; extrato sem preco)
+2026-01-28,PETR4,C,120.0,36.13,extrato B3
+2026-02-04,PETR4,C,92.0,37.58,extrato B3
+2026-02-05,PETR4,V,12.0,37.0,preco estimado (fechamento do dia; extrato sem preco)
+2026-02-05,PETR4,V,200.0,38.2,extrato B3
+2026-02-11,PETR4,C,12.0,37.35,extrato B3
+2026-02-13,PETR4,V,12.0,38.0,extrato B3
+2026-05-04,TOTS3,C,96.0,31.1,extrato B3
+2026-05-18,CPLE3,C,175.0,14.811,extrato B3
+2026-06-11,SANB11,C,16.0,27.08,extrato B3
+2026-06-11,ITSA4,C,160.0,12.583,extrato B3
+2026-06-11,BBAS3,C,61.0,19.3,extrato B3
+2026-06-11,VIVT3,C,55.0,33.4,extrato B3
+2026-07-07,CMIN3,C,31.0,4.3,extrato B3
+2026-07-08,CMIN3,V,31.0,4.31,extrato B3
+2026-07-08,BRSR6,C,33.0,13.87,extrato B3
+2026-07-08,BBAS3,V,61.0,19.7,extrato B3
+2026-07-10,BRSR6,C,63.0,13.9,extrato B3
+2026-07-20,SANB11,C,3.0,26.86,extrato B3
+2026-08-05,SANB11,V,19.0,28.97,extrato B3
+2026-08-06,PSSA3,C,10.0,54.39,extrato B3
+2026-10-06,BRSR6,V,96.0,14.4,nota de corretagem (planilha Carteira RV)
+2026-10-20,TOTS3,V,96.0,41.98,nota de corretagem (planilha Carteira RV)
+2026-10-20,EQTL3,V,54.0,50.12,nota de corretagem (planilha Carteira RV)
