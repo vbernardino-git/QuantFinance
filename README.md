@@ -4,7 +4,7 @@
 
 Todos os números e gráficos abaixo vêm **da minha carteira e das minhas operações de verdade**: extrato de movimentação da B3 (2025–2026), notas de corretagem e a posição atual na corretora.
 
-![Python](https://img.shields.io/badge/python-3.14-blue) ![dados](https://img.shields.io/badge/dados-Yahoo%20%C2%B7%20BCB%20%C2%B7%20B3%20%C2%B7%20StatusInvest-lightgrey) [![Contato: LinkedIn](https://img.shields.io/badge/contato-LinkedIn-0a66c2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/viniciusbernardino01/) [![Instagram @vnbernardino](https://img.shields.io/badge/instagram-%40vnbernardino-E4405F?logo=instagram&logoColor=white)](https://www.instagram.com/vnbernardino/)
+![Python](https://img.shields.io/badge/python-3.14-blue) ![dados](https://img.shields.io/badge/dados-Yahoo%20%C2%B7%20BCB%20%C2%B7%20B3%20%C2%B7%20StatusInvest-lightgrey) [![Contato: LinkedIn](https://img.shields.io/badge/contato-LinkedIn-0a66c2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/viniciusbernardino01/) [![Instagram @vnbernardino](https://img.shields.io/badge/instagram-%40vnbernardino-C13584?logo=instagram&logoColor=white)](https://www.instagram.com/vnbernardino/)
 
 ---
 
