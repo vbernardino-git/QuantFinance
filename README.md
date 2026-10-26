@@ -4,7 +4,7 @@
 
 Todos os números e gráficos abaixo vêm **da minha carteira e das minhas operações de verdade**: extrato de movimentação da B3 (2025–2026), notas de corretagem e a posição atual na corretora.
 
-![Python](https://img.shields.io/badge/python-3.14-blue) ![dados](https://img.shields.io/badge/dados-Yahoo%20%C2%B7%20BCB%20%C2%B7%20B3%20%C2%B7%20StatusInvest-lightgrey) ![custo](https://img.shields.io/badge/custo%20de%20API-R%24%200-brightgreen)
+![Python](https://img.shields.io/badge/python-3.14-blue) ![dados](https://img.shields.io/badge/dados-Yahoo%20%C2%B7%20BCB%20%C2%B7%20B3%20%C2%B7%20StatusInvest-lightgrey)
 
 ---
 
@@ -14,7 +14,7 @@ Todos os números e gráficos abaixo vêm **da minha carteira e das minhas opera
 |---|---|
 | **Operações reais analisadas** | 60 ordens · **28 vendas** · jan/2025 → out/2026 |
 | **Resultado realizado** | **R$ +2.043** (preço médio, sem taxas) · acerto de **68%** · ganho médio R$ 127 × perda média R$ 46 |
-| **Melhores trades** | TOTS3 **+35%** e EQTL3 **+37%** (out/2026) · Petrobras: posição montada no fim de 2025 e vendida a R$ 38,20 (fev/2026) |
+| **Melhores trades** | TOTS3 **+35%** e EQTL3 **+37%** (out/2026) · PETR4 **+3,9%** (200 ações a R$ 38,20 sobre preço médio de R$ 36,76, fev/2026) |
 | **Carteira atual** | CPLE3 · ITSA4 · VIVT3 · PSSA3 (+ caixa) · **+11,4%** sobre o custo |
 | **Markowitz** | carteira atual: Sharpe **0,73** · o máximo Sharpe da fronteira: **0,87** com a mesma vol (18%) |
 | **Monte Carlo (1 ano, 10 mil caminhos)** | VaR 95% **−3,5%** · CVaR 95% **−10,9%** · P(bater o CDI) **76%** |
@@ -37,7 +37,7 @@ Cada degrau é uma venda real. A apuração usa **preço médio ponderado** (a r
 
 ### Petrobras (PETR4): a posição do fim de 2025
 
-Comprei PETR4 em lotes entre setembro de 2025 e o começo de 2026, sempre na faixa de R$ 30–32 (92 ações a R$ 30,74 em set/25, 120 a R$ 31,41 em dez/25, 92 a R$ 30,20 e 120 a R$ 31,79 em jan/26), e completei a R$ 36,13 e R$ 37,58 na alta de janeiro. Saí no topo do movimento: **200 ações a R$ 38,20 em 05/02/2026** e o resto a R$ 38,00 uma semana depois. No período a ação ainda rendeu aluguel (BTC) — R$ 24,99 de reembolso de empréstimo no informe de 2025.
+Comprei PETR4 em lotes entre setembro de 2025 e o começo de 2026, sempre na faixa de R$ 30–32 (92 ações a R$ 30,74 em set/25, 120 a R$ 31,41 em dez/25, 92 a R$ 30,20 e 120 a R$ 31,79 em jan/26), e completei a R$ 36,13 e R$ 37,58 na alta de janeiro. Saí no topo do movimento: **200 ações a R$ 38,20 em 05/02/2026 (+3,9% sobre o preço médio de R$ 36,76)** e o resto a R$ 37,00 e R$ 38,00 (+0,7% e +1,7%). As saídas de fevereiro somaram **R$ +299, ou +3,6%** sobre o custo, em 8 dias de posição. Somando o ciclo inteiro desde set/25, com as quatro saídas sem preço estimadas pelo fechamento, foram R$ +222 (+1,0%). No período a ação ainda rendeu aluguel (BTC) — R$ 24,99 de reembolso de empréstimo no informe de 2025.
 
 > Quatro saídas parciais de PETR4 (out/25, dez/25 e jan/26) aparecem no extrato da B3 **sem preço**. No CSV elas estão com o fechamento do dia e marcadas como *preço estimado*.
 

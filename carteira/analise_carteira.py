@@ -38,23 +38,28 @@ N_SIM = 10_000
 TETO_PESO = 0.40
 SEED = 42
 
-# ---- paleta: cor so onde carrega informacao ---------------------------------------
-AZUL, LARANJA, VERDE_AGUA, VERMELHO = "#2a78d6", "#eb6834", "#1baf7a", "#e34948"
-CINZA, CINZA_CLARO, TINTA, TINTA_2 = "#8a8984", "#d9d8d4", "#0b0b0b", "#52514e"
+# ---- paleta (fundo preto): cor so onde carrega informacao ---------------------------
+AZUL, LARANJA, VERDE_AGUA, VERMELHO = "#3987e5", "#d95926", "#199e70", "#e66767"
+CINZA, CINZA_CLARO, TINTA, TINTA_2 = "#898781", "#383835", "#f0efec", "#c3c2b7"
+FUNDO = "#0d0d0d"
 plt.rcParams.update({
     "figure.dpi": 130, "savefig.dpi": 130, "font.size": 10.5, "font.family": "DejaVu Sans",
     "axes.edgecolor": CINZA_CLARO, "axes.linewidth": 0.8, "axes.grid": True,
-    "grid.color": "#ecebe8", "grid.linewidth": 0.7, "axes.spines.top": False,
+    "grid.color": "#2c2c2a", "grid.linewidth": 0.7, "axes.spines.top": False,
     "axes.spines.right": False, "axes.titleweight": "bold", "axes.titlesize": 13,
     "axes.titlelocation": "left", "axes.labelcolor": TINTA_2, "xtick.color": TINTA_2,
-    "ytick.color": TINTA_2, "legend.frameon": False, "figure.facecolor": "white",
+    "ytick.color": TINTA_2, "legend.frameon": False, "figure.facecolor": FUNDO,
+    "axes.facecolor": FUNDO, "text.color": TINTA, "axes.titlecolor": TINTA,
+    "legend.labelcolor": TINTA_2, "axes.axisbelow": True,
 })
 BRL = mtick.FuncFormatter(lambda v, _: f"R$ {v:,.0f}".replace(",", "."))
 PCT = mtick.PercentFormatter(1.0, decimals=0)
+from matplotlib.colors import LinearSegmentedColormap
+AZUIS = LinearSegmentedColormap.from_list("azuis", ["#141b24", "#184f95", "#3987e5", "#9ec5f4"])  # perto de 0 some no fundo
 
 
 def salvar(fig, nome):
-    fig.savefig(os.path.join(IMG, nome), bbox_inches="tight", facecolor="white")
+    fig.savefig(os.path.join(IMG, nome), bbox_inches="tight", facecolor=FUNDO)
     plt.close(fig)
     print("  ->", nome)
 
@@ -149,13 +154,13 @@ ax.scatter(nv_v, nv_r, s=3, color=CINZA_CLARO, alpha=0.6, lw=0, label="15 mil ca
 ax.plot(fronteira[:, 0], fronteira[:, 1], color=AZUL, lw=2, label="Fronteira eficiente")
 for t in universo:
     v_t = np.sqrt(cov.loc[t, t])
-    ax.scatter(v_t, mu[t], s=26, color="white", edgecolor=CINZA, lw=1.2, zorder=3)
+    ax.scatter(v_t, mu[t], s=26, color=FUNDO, edgecolor=CINZA, lw=1.2, zorder=3)
     ax.annotate(t, (v_t, mu[t]), xytext=(5, 3), textcoords="offset points", fontsize=8.5, color=TINTA_2)
 pts = [(v_at, r_at, "Minha carteira", LARANJA, "o"),
        (v_ms, r_ms, "Máximo Sharpe", AZUL, "D"),
        (v_mv, r_mv, "Mínima variância", VERDE_AGUA, "s")]
 for v_, r_, nome, cor, mk in pts:
-    ax.scatter(v_, r_, s=110, color=cor, marker=mk, edgecolor="white", lw=2, zorder=5)
+    ax.scatter(v_, r_, s=110, color=cor, marker=mk, edgecolor=FUNDO, lw=2, zorder=5)
     ax.annotate(f"{nome}\nret {r_:.0%} · vol {v_:.0%} · Sharpe {sh(r_, v_):.2f}", (v_, r_),
                 xytext=(12, -6), textcoords="offset points", fontsize=8.8, color=TINTA, fontweight="bold")
 ax.axhline(rf, color=CINZA, lw=1, ls="--")
@@ -217,7 +222,7 @@ ax.set_title(f"Monte Carlo — {N_SIM:,} caminhos de 1 ano da minha carteira".re
 subtitulo(ax, f"GBM multivariado com Cholesky (correlação real entre {', '.join(atuais)}) · "
               f"ponto de partida R$ {patrimonio_acoes:,.0f}".replace(",", ".").replace(". ", ", "))
 ax.legend(loc="upper left", fontsize=9)
-ax2.hist(final, bins=70, orientation="horizontal", color=AZUL, alpha=0.75, edgecolor="white", lw=0.3)
+ax2.hist(final, bins=70, orientation="horizontal", color=AZUL, alpha=0.75, edgecolor=FUNDO, lw=0.3)
 lim_var = patrimonio_acoes * (1 + var95)
 ax2.axhline(lim_var, color=VERMELHO, lw=1.5)
 ax2.axhline(patrimonio_acoes, color=CINZA, lw=1, ls=":")
@@ -249,7 +254,7 @@ risco.round(4).to_csv(os.path.join(SAIDA, "risco_por_ativo.csv"))
 fig, ax = plt.subplots(figsize=(7.4, 6.2))
 corr = ret[universo].corr()
 m = np.triu(np.ones_like(corr, dtype=bool), 1)
-im = ax.imshow(np.ma.array(corr, mask=m), cmap="Blues", vmin=0, vmax=1)
+im = ax.imshow(np.ma.array(corr, mask=m), cmap=AZUIS, vmin=0, vmax=1)
 ax.set_xticks(range(len(universo)), universo, rotation=45, ha="right")
 ax.set_yticks(range(len(universo)), universo)
 ax.grid(False)
@@ -257,7 +262,7 @@ for i in range(len(universo)):
     for j in range(i + 1):
         v = corr.iloc[i, j]
         ax.text(j, i, f"{v:.2f}", ha="center", va="center", fontsize=8.5,
-                color="white" if v > 0.6 else TINTA)
+                color=FUNDO if v > 0.6 else TINTA)
 for s in ax.spines.values():
     s.set_visible(False)
 ax.set_title("Correlação dos retornos diários", pad=8)
