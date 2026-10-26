@@ -109,12 +109,6 @@ Antes de comprar qualquer papel, eu rodo o `analisar.py`. Ele junta fundamentos,
 
 Detalhes: [`analisador/README.md`](analisador/README.md)
 
-## 7. Regime de mercado (Markov switching)
-
-**Markov switching intraday** (15 min, calibrado em BTC-USD e depois levado para o radar do IBOV), avisos de alta convicção com acerto medido:
-
-![Markov](docs/img/notebooks/03_markov_switching_1.png)
-
 ---
 
 ## O que os dados me ensinaram
@@ -141,12 +135,8 @@ QuantFinance/
 │  └─ nucleo/                   ← tecnico, fundamentos, regime, ml, montecarlo, risco, veredito...
 ├─ notebooks/
 │  ├─ 01_monte_carlo_gbm        ← GBM, VaR/CVaR por ativo
-│  ├─ 02_markowitz              ← fronteira eficiente / máximo Sharpe (scipy SLSQP)
-│  ├─ 03_markov_switching       ← regime de Hamilton intraday + backtest dos sinais
-│  ├─ 04_hmm_regimes            ← Gaussian HMM + clusters de Wasserstein, walk-forward
-│  ├─ 05_ml_return_predictor    ← previsão de retorno multi-fator
-│  ├─ 06_regression_instability ← instabilidade de betas ao longo do tempo
-│  └─ 07_lbo_model              ← modelo de LBO (valuation)
+│  ├─ 02_ml_return_predictor    ← previsão de retorno multi-fator
+│  └─ 03_lbo_model              ← modelo de LBO (valuation)
 ├─ radares/                     ← scanners do IBOV em tempo real (Markov, ANATEC/M34) com alerta no Telegram,
 │                                  Magic Formula (Fundamentus) e agenda/arbitragem de proventos
 ├─ resultados/                  ← resumo.json, risco_por_ativo.csv, trades_por_ano.csv
