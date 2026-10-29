@@ -210,25 +210,26 @@ p_cdi = (pnl > rf).mean()
 fig, (ax, ax2) = plt.subplots(1, 2, figsize=(12, 5.2), gridspec_kw={"width_ratios": [2.2, 1]}, sharey=True)
 d = np.arange(DIAS + 1)
 faixas = [(5, 95, 0.12), (25, 75, 0.25)]
+ret_sim = valor_sim / patrimonio_acoes - 1                       # em % (sem expor o patrimonio)
 for lo, hi, a in faixas:
-    ax.fill_between(d, np.percentile(valor_sim, lo, axis=1), np.percentile(valor_sim, hi, axis=1),
+    ax.fill_between(d, np.percentile(ret_sim, lo, axis=1), np.percentile(ret_sim, hi, axis=1),
                     color=AZUL, alpha=a, lw=0, label=f"P{lo}–P{hi}")
 for k in rng.choice(N_SIM, 40, replace=False):
-    ax.plot(d, valor_sim[:, k], color=AZUL, lw=0.4, alpha=0.25)
-ax.plot(d, np.median(valor_sim, axis=1), color=AZUL, lw=2, label="Mediana")
-ax.plot(d, patrimonio_acoes * np.exp(np.log1p(rf) * d / DIAS), color=CINZA, lw=1.4, ls="--", label="CDI")
-ax.yaxis.set_major_formatter(BRL); ax.set_xlabel("Pregões à frente")
+    ax.plot(d, ret_sim[:, k], color=AZUL, lw=0.4, alpha=0.25)
+ax.plot(d, np.median(ret_sim, axis=1), color=AZUL, lw=2, label="Mediana")
+ax.plot(d, np.exp(np.log1p(rf) * d / DIAS) - 1, color=CINZA, lw=1.4, ls="--", label="CDI")
+ax.yaxis.set_major_formatter(PCT); ax.set_xlabel("Pregões à frente")
 ax.set_title(f"Monte Carlo — {N_SIM:,} caminhos de 1 ano da minha carteira".replace(",", "."), pad=22)
 subtitulo(ax, f"GBM multivariado com Cholesky (correlação real entre {', '.join(atuais)}) · "
-              f"ponto de partida R$ {patrimonio_acoes:,.0f}".replace(",", ".").replace(". ", ", "))
+              f"retorno acumulado sobre o valor de hoje")
 ax.legend(loc="upper left", fontsize=9)
-ax2.hist(final, bins=70, orientation="horizontal", color=AZUL, alpha=0.75, edgecolor=FUNDO, lw=0.3)
-lim_var = patrimonio_acoes * (1 + var95)
+ax2.hist(pnl, bins=70, orientation="horizontal", color=AZUL, alpha=0.75, edgecolor=FUNDO, lw=0.3)
+lim_var = var95
 ax2.axhline(lim_var, color=VERMELHO, lw=1.5)
-ax2.axhline(patrimonio_acoes, color=CINZA, lw=1, ls=":")
+ax2.axhline(0, color=CINZA, lw=1, ls=":")
 ax2.text(ax2.get_xlim()[1] * 0.97, lim_var, f"VaR 95%  {var95:.1%}\nCVaR 95% {cvar95:.1%}",
          ha="right", va="top", fontsize=9, color=TINTA, fontweight="bold")
-ax2.text(ax2.get_xlim()[1] * 0.97, np.percentile(final, 97),
+ax2.text(ax2.get_xlim()[1] * 0.97, np.percentile(pnl, 97),
          f"P(lucro) {p_lucro:.0%}\nP(bater CDI) {p_cdi:.0%}", ha="right", va="top", fontsize=9, color=TINTA)
 ax2.set_xlabel("Nº de cenários"); ax2.set_title("Distribuição em 1 ano", pad=22)
 salvar(fig, "monte_carlo_carteira.png")
@@ -289,21 +290,20 @@ salvar(fig, "carteira_vs_ibov.png")
 print("Trades...")
 rt = pd.read_csv(os.path.join(AQUI, "dados", "round_trips.csv"), parse_dates=["data_venda"])
 rt = rt[rt.status != "sem_custo"].sort_values("data_venda").reset_index(drop=True)
-rt["acum"] = rt["resultado"].cumsum()
+rt["acum"] = rt["resultado"].cumsum() / (rt["qtd"] * rt["preco_medio"]).cumsum()  # % sobre o custo do que foi vendido
 fig, (a1, a2) = plt.subplots(2, 1, figsize=(11, 6.4), sharex=True, gridspec_kw={"height_ratios": [1.5, 1]})
 a1.step(rt["data_venda"], rt["acum"], where="post", color=AZUL, lw=2)
 a1.fill_between(rt["data_venda"], rt["acum"], step="post", color=AZUL, alpha=0.08)
-a1.yaxis.set_major_formatter(BRL)
+a1.yaxis.set_major_formatter(PCT)
 a1.set_title(f"Resultado realizado acumulado — {len(rt)} vendas reais "
              f"({rt.data_venda.dt.year.min()}–{rt.data_venda.dt.year.max()})", pad=22)
-subtitulo(a1, "extrato de movimentação da B3 + notas de corretagem · apurado por preço médio · sem taxas")
+subtitulo(a1, "% sobre o custo das posições vendidas · extrato da B3 + notas de corretagem · preço médio · sem taxas")
 for _, t in rt.nlargest(4, "resultado").iterrows():
     a1.annotate(f"{t.ticker} {t.resultado_pct:+.0%}", (t.data_venda, t.acum), xytext=(-8, 8),
                 textcoords="offset points", ha="right", fontsize=8.5, color=TINTA)
-por_dia = rt.groupby("data_venda")["resultado"].sum()
-a2.bar(por_dia.index, por_dia.values, width=9, color=np.where(por_dia.values >= 0, AZUL, VERMELHO))
+a2.bar(rt["data_venda"], rt["resultado_pct"], width=9, color=np.where(rt["resultado_pct"] >= 0, AZUL, VERMELHO))
 a2.axhline(0, color=CINZA, lw=0.8)
-a2.yaxis.set_major_formatter(BRL); a2.set_ylabel("Por dia de venda")
+a2.yaxis.set_major_formatter(PCT); a2.set_ylabel("Cada venda")
 salvar(fig, "trades_resultado.png")
 
 anual = rt.groupby(rt.data_venda.dt.year).agg(resultado=("resultado", "sum"), vendas=("resultado", "size"),
@@ -315,16 +315,16 @@ anual.to_csv(os.path.join(SAIDA, "trades_por_ano.csv"))
 # =====================================================================================
 fig, (a1, a2) = plt.subplots(1, 2, figsize=(12, 4.2))
 ordem = pos.sort_values("valor")
-a1.barh(ordem.index, ordem["valor"], color=AZUL, height=0.55)
+a1.barh(ordem.index, ordem["peso"], color=AZUL, height=0.55)
 for i, (t, r) in enumerate(ordem.iterrows()):
-    a1.text(r.valor, i, f"  {r.peso:.0%} · {r.setor}", va="center", fontsize=9, color=TINTA_2)
-a1.xaxis.set_major_locator(mtick.MaxNLocator(4)); a1.xaxis.set_major_formatter(BRL)
-a1.set_title("Posição atual (valor de mercado)", pad=8)
-a1.set_xlim(0, ordem["valor"].max() * 1.45)
+    a1.text(r.peso, i, f"  {r.peso:.0%} · {r.setor}", va="center", fontsize=9, color=TINTA_2)
+a1.xaxis.set_major_locator(mtick.MaxNLocator(4)); a1.xaxis.set_major_formatter(PCT)
+a1.set_title("Posição atual (peso a valor de mercado)", pad=8)
+a1.set_xlim(0, ordem["peso"].max() * 1.45)
 lp_pct = (ordem["lp"] / ordem["custo"])
 a2.barh(ordem.index, lp_pct, color=np.where(lp_pct >= 0, AZUL, VERMELHO), height=0.55)
 for i, (t, v) in enumerate(lp_pct.items()):
-    a2.text(v, i, f"  {v:+.1%}  (R$ {ordem.loc[t, 'lp']:+,.0f})".replace(",", "."),
+    a2.text(v, i, f"  {v:+.1%}",
             va="center", ha="left" if v >= 0 else "right", fontsize=9, color=TINTA)
 a2.axvline(0, color=CINZA, lw=0.8); a2.xaxis.set_major_formatter(PCT)
 a2.set_title("Lucro/prejuízo sobre o preço médio", pad=8)

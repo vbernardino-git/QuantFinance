@@ -13,8 +13,8 @@ Todos os números e gráficos abaixo vêm **da minha carteira e das minhas opera
 | | |
 |---|---|
 | **Operações reais analisadas** | 45 ordens · **21 vendas** · jan/2025 → out/2026 |
-| **Resultado realizado** | **R$ +3.381** (preço médio, sem taxas) · acerto de **76%** · ganho médio R$ 226 × perda média R$ 47 |
-| **Melhores trades** | TOTS3 **+35%** e EQTL3 **+37%** (out/2026) · PETR4 **+22,7%** (212 ações, preço médio R$ 31,12 → venda a R$ 38,20, fev/2026) |
+| **Resultado realizado** | **+13,4%** sobre o custo das posições vendidas (preço médio, sem taxas) · acerto de **76%** |
+| **Melhores trades** | TOTS3 **+35%** e EQTL3 **+37%** (out/2026) · PETR4 **+22,7%** (fev/2026) |
 | **Carteira atual** | CPLE3 · ITSA4 · VIVT3 · PSSA3 (+ caixa) · **+11,4%** sobre o custo |
 | **Markowitz** | carteira atual: Sharpe **0,73** · o máximo Sharpe da fronteira: **0,87** com a mesma vol (18%) |
 | **Monte Carlo (1 ano, 10 mil caminhos)** | VaR 95% **−3,5%** · CVaR 95% **−10,9%** · P(bater o CDI) **76%** |
@@ -28,22 +28,22 @@ Todos os números e gráficos abaixo vêm **da minha carteira e das minhas opera
 
 ![Resultado realizado acumulado](docs/img/trades_resultado.png)
 
-Cada degrau é uma venda real. A apuração usa **preço médio ponderado** (a regra da Receita, igual ao que a corretora informa), não FIFO. 2025 foi o ano de ajuste: limpei posições antigas que não faziam sentido (RANI3, SOJA3, BBAS3) e girei muito em operações curtas. Em 2026 mudei o processo — menos operações, mais convicção, decisão apoiada nas ferramentas deste repositório — e o resultado realizado do ano chegou a **R$ +3.378 em 8 vendas, todas no lucro**.
+Cada degrau é uma venda real. A apuração usa **preço médio ponderado** (a regra da Receita, igual ao que a corretora informa), não FIFO. 2025 foi o ano de ajuste: limpei posições antigas que não faziam sentido (RANI3, SOJA3, BBAS3) e girei muito em operações curtas. Em 2026 mudei o processo — menos operações, mais convicção, decisão apoiada nas ferramentas deste repositório — e o resultado realizado do ano chegou a **+22,9% em 8 vendas, todas no lucro**.
 
 | Ano | Vendas | Resultado | Acerto |
 |---|---:|---:|---:|
-| 2025 | 13 | R$ +3 | 62% |
-| **2026** | **8** | **R$ +3.378** | **100%** |
+| 2025 | 13 | 0,0% | 62% |
+| **2026** | **8** | **+22,9%** | **100%** |
 
 ### Petrobras (PETR4): a posição do fim de 2025
 
-Comprei 212 ações de PETR4 na faixa de R$ 30–32: 92 a R$ 30,74 em set/25 e 120 a R$ 31,41 em dez/25 (**preço médio R$ 31,12, custo R$ 6.598**). Enquanto segurava, deixei as ações no aluguel (BTC). Saí na alta de fevereiro: **200 ações a R$ 38,20 em 05/02/2026 e 12 a R$ 38,00 em 13/02**, recebendo R$ 8.094. Resultado: **R$ +1.498, ou +22,7%** em cerca de 5 meses. Somando os proventos que o aluguel reembolsou (R$ 181 em fev–mar/26), o ganho total da posição foi de **R$ +1.680 (+25%)**.
+Montei a posição de PETR4 em duas compras, em set/25 e dez/25. Enquanto segurava, deixei as ações no aluguel (BTC). Saí na alta de fevereiro, em duas vendas (05/02 e 13/02/2026). Resultado: **+22,7%** em cerca de 5 meses. Somando os proventos que o aluguel reembolsou (fev–mar/26), o ganho total da posição foi de **+25%**.
 
 > No extrato da B3 o aluguel aparece como "Liquidação": a ação emprestada sai **sem preço** e volta dias depois com a mesma quantidade. O `trades_b3.py` casa cada saída sem preço com a devolução seguinte e tira o par do cálculo, porque não é compra nem venda. Conferi contra o extrato da conta no Inter: as devoluções não movimentam caixa, só as compras e as vendas de verdade.
 
 ### TOTS3 e EQTL3: por que vendi em outubro
 
-Em 20/10/2026 vendi as duas de uma vez: **96 TOTS3 a R$ 41,98** (preço médio R$ 31,10, **R$ +1.044, +35%**) e **54 EQTL3 a R$ 50,12** (preço médio R$ 36,70, **R$ +725, +37%**). Três motivos:
+Em 20/10/2026 vendi as duas de uma vez: **TOTS3 com +35%** e **EQTL3 com +37%** sobre o preço médio. Três motivos:
 
 1. **Pagavam pouco dividendo.** As duas são teses de crescimento, não de renda, e não se encaixam na estratégia de dividendos da carteira (BESST + Bazin).
 2. **Concentravam o ganho.** Sozinhas, sustentavam a maior parte da valorização da carteira. Se elas devolvessem a alta, a carteira inteira devolveria junto.
@@ -79,7 +79,7 @@ GBM **multivariado**: os choques diários são correlacionados via **decomposiç
 
 > **Ressalva honesta:** o drift é a média histórica de 3 anos (~28% a.a.), um período bom para esses papéis. O número que eu levo a sério é a **cauda** (CVaR −10,9%), não a mediana.
 
-Também rodo o Monte Carlo papel a papel. O da TOTS3 ([notebook 01](notebooks/01_monte_carlo_gbm.ipynb)), rodado em jun/2026 com o papel a ~R$ 29,50 (comprei a R$ 31,10), dava a média perto de R$ 34 e o percentil 95 perto de R$ 59. Vendi em outubro a **R$ 41,98 (+35%)**, dentro do cone:
+Também rodo o Monte Carlo papel a papel. O da TOTS3 ([notebook 01](notebooks/01_monte_carlo_gbm.ipynb)), rodado em jun/2026 com o papel uns 5% abaixo do meu preço médio, dava a média ~15% acima do preço da época e o percentil 95 perto do dobro. Vendi em outubro com **+35%**, dentro do cone:
 
 ![Monte Carlo TOTS3](docs/img/notebooks/01_monte_carlo_gbm_2.png)
 
@@ -122,7 +122,7 @@ Detalhes: [`analisador/README.md`](analisador/README.md)
 ## O que os dados me ensinaram
 
 1. **No Brasil, o benchmark é o CDI, não o IBOV.** Toda decisão aqui é medida contra a Selic do mesmo período, e Sharpe e drawdown pesam tanto quanto o retorno.
-2. **Giro alto não paga.** 17 vendas em 2025 deram R$ −181; 11 vendas com mais convicção em 2026 deram R$ +2.224.
+2. **Giro alto não paga.** 13 vendas em 2025 deram 0,0%; 8 vendas com mais convicção em 2026 deram +22,9%.
 3. **Markowitz sem restrição é inútil na prática.** O teto de 40% por papel é o que torna a resposta utilizável.
 4. **Média de dividendos engana.** A média de DPA de 5 anos infla quem cortou dividendo ou teve um ano extraordinário. Antes de confiar no preço teto, confiro a renda conservadora = mín(média de 5 anos, últimos 12 meses) e a tendência do DPA.
 
