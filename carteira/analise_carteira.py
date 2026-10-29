@@ -290,20 +290,21 @@ salvar(fig, "carteira_vs_ibov.png")
 print("Trades...")
 rt = pd.read_csv(os.path.join(AQUI, "dados", "round_trips.csv"), parse_dates=["data_venda"])
 rt = rt[rt.status != "sem_custo"].sort_values("data_venda").reset_index(drop=True)
-rt["acum"] = rt["resultado"].cumsum() / (rt["qtd"] * rt["preco_medio"]).cumsum()  # % sobre o custo do que foi vendido
+rt["acum"] = rt["resultado"].cumsum()
 fig, (a1, a2) = plt.subplots(2, 1, figsize=(11, 6.4), sharex=True, gridspec_kw={"height_ratios": [1.5, 1]})
 a1.step(rt["data_venda"], rt["acum"], where="post", color=AZUL, lw=2)
 a1.fill_between(rt["data_venda"], rt["acum"], step="post", color=AZUL, alpha=0.08)
-a1.yaxis.set_major_formatter(PCT)
+a1.yaxis.set_major_formatter(BRL)
 a1.set_title(f"Resultado realizado acumulado — {len(rt)} vendas reais "
              f"({rt.data_venda.dt.year.min()}–{rt.data_venda.dt.year.max()})", pad=22)
-subtitulo(a1, "% sobre o custo das posições vendidas · extrato da B3 + notas de corretagem · preço médio · sem taxas")
+subtitulo(a1, "extrato de movimentação da B3 + notas de corretagem · apurado por preço médio · sem taxas")
 for _, t in rt.nlargest(4, "resultado").iterrows():
     a1.annotate(f"{t.ticker} {t.resultado_pct:+.0%}", (t.data_venda, t.acum), xytext=(-8, 8),
                 textcoords="offset points", ha="right", fontsize=8.5, color=TINTA)
-a2.bar(rt["data_venda"], rt["resultado_pct"], width=9, color=np.where(rt["resultado_pct"] >= 0, AZUL, VERMELHO))
+por_dia = rt.groupby("data_venda")["resultado"].sum()
+a2.bar(por_dia.index, por_dia.values, width=9, color=np.where(por_dia.values >= 0, AZUL, VERMELHO))
 a2.axhline(0, color=CINZA, lw=0.8)
-a2.yaxis.set_major_formatter(PCT); a2.set_ylabel("Cada venda")
+a2.yaxis.set_major_formatter(BRL); a2.set_ylabel("Por dia de venda")
 salvar(fig, "trades_resultado.png")
 
 anual = rt.groupby(rt.data_venda.dt.year).agg(resultado=("resultado", "sum"), vendas=("resultado", "size"),
