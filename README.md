@@ -41,6 +41,14 @@ Comprei 212 ações de PETR4 na faixa de R$ 30–32: 92 a R$ 30,74 em set/25 e 1
 
 > No extrato da B3 o aluguel aparece como "Liquidação": a ação emprestada sai **sem preço** e volta dias depois com a mesma quantidade. O `trades_b3.py` casa cada saída sem preço com a devolução seguinte e tira o par do cálculo, porque não é compra nem venda. Conferi contra o extrato da conta no Inter: as devoluções não movimentam caixa, só as compras e as vendas de verdade.
 
+### TOTS3 e EQTL3: por que vendi em outubro
+
+Em 20/10/2026 vendi as duas de uma vez: **96 TOTS3 a R$ 41,98** (preço médio R$ 31,10, **R$ +1.044, +35%**) e **54 EQTL3 a R$ 50,12** (preço médio R$ 36,70, **R$ +725, +37%**). Três motivos:
+
+1. **Pagavam pouco dividendo.** As duas são teses de crescimento, não de renda, e não se encaixam na estratégia de dividendos da carteira (BESST + Bazin).
+2. **Concentravam o ganho.** Sozinhas, sustentavam a maior parte da valorização da carteira. Se elas devolvessem a alta, a carteira inteira devolveria junto.
+3. **Risco eleitoral (o principal).** Na reta final da eleição presidencial de 2026 eu vi risco de volatilidade forte na bolsa. Preferi realizar o lucro antes do resultado em vez de apostar no desfecho.
+
 Base: [`carteira/dados/round_trips.csv`](carteira/dados/round_trips.csv) · motor: [`carteira/trades_b3.py`](carteira/trades_b3.py)
 
 ## 2. A carteira hoje
