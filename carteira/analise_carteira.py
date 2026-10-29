@@ -305,7 +305,7 @@ por_dia = rt.groupby("data_venda")["resultado"].sum()
 a2.bar(por_dia.index, por_dia.values, width=9, color=np.where(por_dia.values >= 0, AZUL, VERMELHO))
 a2.axhline(0, color=CINZA, lw=0.8)
 a2.yaxis.set_major_formatter(BRL); a2.set_ylabel("Por dia de venda")
-salvar(fig, "trades_resultado.png")
+salvar(fig, "trades_resultado_rs.png")
 
 anual = rt.groupby(rt.data_venda.dt.year).agg(resultado=("resultado", "sum"), vendas=("resultado", "size"),
                                               acerto=("resultado", lambda s: (s > 0).mean()))

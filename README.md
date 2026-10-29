@@ -28,7 +28,7 @@ Todos os números e gráficos abaixo vêm **da minha carteira e das minhas opera
 
 ## 1. Meus trades reais
 
-![Resultado realizado acumulado](docs/img/trades_resultado.png)
+![Resultado realizado acumulado](docs/img/trades_resultado_rs.png)
 
 Cada degrau é uma venda real. A apuração usa **preço médio ponderado** (a regra da Receita, igual ao que a corretora informa), não FIFO. 2025 foi o ano de ajuste: limpei posições antigas que não faziam sentido (RANI3, SOJA3, BBAS3) e girei muito em operações curtas. Em 2026 mudei o processo — menos operações, mais convicção, decisão apoiada nas ferramentas deste repositório — e o resultado realizado do ano chegou a **+22,9% em 8 vendas, todas no lucro**.
 
