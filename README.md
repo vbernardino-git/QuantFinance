@@ -53,6 +53,7 @@ Em 20/10/2026 vendi as duas de uma vez: **TOTS3 com +35%** em ~5,5 meses (≈ 5,
 1. **Pagavam pouco dividendo.** As duas são teses de crescimento, não de renda, e não se encaixam na estratégia de dividendos da carteira (BESST + Bazin).
 2. **Concentravam o ganho.** Sozinhas, sustentavam a maior parte da valorização da carteira. Se elas devolvessem a alta, a carteira inteira devolveria junto.
 3. **Risco eleitoral (o principal).** Na reta final da eleição presidencial de 2026 eu vi risco de volatilidade forte na bolsa. Preferi realizar o lucro antes do resultado em vez de apostar no desfecho.
+4. **A tese da TOTS3 tinha se esgotado.** Comprei olhando o P/VP: em 2026 o papel negociava a um P/VP bem abaixo do de 2021, e a tese era essa diferença fechar. Com a alta, o P/VP deixou de ser atraente e não sobrou margem para justificar ficar na posição.
 
 Base: [`carteira/dados/round_trips.csv`](carteira/dados/round_trips.csv) · motor: [`carteira/trades_b3.py`](carteira/trades_b3.py)
 
