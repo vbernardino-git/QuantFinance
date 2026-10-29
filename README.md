@@ -48,7 +48,7 @@ Montei a posição de PETR4 em duas compras, em set/25 e dez/25. Enquanto segura
 
 ### TOTS3 e EQTL3: por que vendi em outubro
 
-Em 20/10/2026 vendi as duas de uma vez: **TOTS3 com +35%** em ~5,5 meses (≈ 5,5% a.m.) e **EQTL3 com +37%** em ~1,8 mês (≈ 19% a.m.), sobre o preço médio. Três motivos:
+Em 20/10/2026 vendi as duas de uma vez: **TOTS3 com +35%** em ~5,5 meses (≈ 5,5% a.m.) e **EQTL3 com +37%** em ~1,8 mês (≈ 19% a.m.), sobre o preço médio. Quatro motivos:
 
 1. **Pagavam pouco dividendo.** As duas são teses de crescimento, não de renda, e não se encaixam na estratégia de dividendos da carteira (BESST + Bazin).
 2. **Concentravam o ganho.** Sozinhas, sustentavam a maior parte da valorização da carteira. Se elas devolvessem a alta, a carteira inteira devolveria junto.
